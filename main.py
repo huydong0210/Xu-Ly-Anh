@@ -28,9 +28,28 @@ def read_label(label_file):
     return x1-width//2, y1-height//2, x1+width//2, y1+height//2
 
 
-# TODO: Implementation IOU
 def iou_score(output, target):
-    return 0.5
+    # output and target are tuples (x1, y1, x2, y2)
+    x1, y1, x2, y2 = output
+    xt1, yt1, xt2, yt2 = target
+
+    # find the coordinates of the intersection rectangle
+    xA = max(x1, xt1)
+    yA = max(y1, yt1)
+    xB = min(x2, xt2)
+    yB = min(y2, yt2)
+
+    # compute the area of intersection rectangle
+    interArea = max(0, xB - xA + 1) * max(0, yB - yA + 1)
+
+    # compute the area of both the prediction and ground-truth rectangles
+    boxAArea = (x2 - x1 + 1) * (y2 - y1 + 1)
+    boxBArea = (xt2 - xt1 + 1) * (yt2 - yt1 + 1)
+
+    # compute the IOU
+    iou = interArea / float(boxAArea + boxBArea - interArea)
+
+    return iou
 
 
 def calc_precision(iou, t):
