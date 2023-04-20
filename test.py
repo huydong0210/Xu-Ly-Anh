@@ -24,6 +24,7 @@ def plot(image_file, label_file):
     img = cv2.rectangle(img, (x1 - width // 2, y1 - height // 2), (x1 + width // 2, y1 + height // 2), (255, 0, 0), 2)
     plt.imshow(img)
     plt.savefig('figure.png')
+    plt.waitforbuttonpress()
     plt.close('all')
 
 plot('data_train/images/img_train_16.jpg',
