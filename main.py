@@ -39,8 +39,8 @@ def calc_precision(iou, t):
 
 if __name__ == "__main__":
 
-    input_folder = sys.argv[1]
-    label_folder = sys.argv[2]
+    input_folder = "data_train/images"
+    label_folder = "data_train/labels"
 
     start_time = time.time()
     detector = LandingDetector()
