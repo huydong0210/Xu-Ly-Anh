@@ -46,10 +46,10 @@ if __name__ == "__main__":
     # new_label(label_path, old_image)
     # cv2.imwrite('new_data_train/images/41.jpg', padding(resize(image_path, [640, 640]), [640, 640]))
 
-    old_root_images_path = 'data_train/images'
-    old_root_labels_path = 'data_train/labels'
-    new_root_images_path = 'new_data_train/images'
-    new_root_labels_path = 'new_data_train/labels'
+    old_root_images_path = 'new_data_train/train/images'
+    old_root_labels_path = 'new_data_train/train/labels'
+    new_root_images_path = 'data_train_on_colab/images'
+    new_root_labels_path = 'data_train_on_colab/labels'
     list_images_name = os.listdir(old_root_images_path)
     list_labels_name = os.listdir(old_root_labels_path)
 
